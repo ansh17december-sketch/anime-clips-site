@@ -27,6 +27,45 @@
     .content {
       padding: 20px;
     }
+    .search-bar-container {
+      padding: 20px;
+      background: #fff;
+    }
+    #searchBar {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .searchable {
+      transition: all 0.2s;
+    }
+    .download-section {
+      background: #fff;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+    .download-section h3 {
+      margin-top: 0;
+    }
+    .download-link {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 7px 14px;
+      background: #2d89ef;
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    .download-link:hover {
+      background: #175bad;
+    }
   </style>
 </head>
 <body>
@@ -38,11 +77,53 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <div class="content">
-    <h1>Welcome to Naruto Clips</h1>
-    <p>Here you can watch all your favorite Naruto anime clips!</p>
-    <!-- You can add videos or links to clips below -->
+  <div class="search-bar-container">
+    <input type="text" id="searchBar" placeholder="Search this page...">
   </div>
+
+  <div class="content">
+    <h1 class="searchable">Welcome to Naruto Clips</h1>
+    <p class="searchable">Here you can watch all your favorite Naruto anime clips!</p>
+    <h2 class="searchable">Popular Clips</h2>
+    <ul>
+      <li class="searchable">Naruto vs Pain Fight</li>
+      <li class="searchable">Naruto and Sasuke vs Momoshiki</li>
+      <li class="searchable">Naruto's Rasengan Training</li>
+      <li class="searchable">Sasuke's Reunion with Sakura</li>
+    </ul>
+    
+    <!-- Download Sections -->
+    <div class="download-section">
+      <h3>Download: Clip 1 (Naruto vs Pain Fight)</h3>
+      <a class="download-link" href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_HERE1" download>Download Clip 1</a>
+    </div>
+    
+    <div class="download-section">
+      <h3>Download: Clip 2 (Naruto and Sasuke vs Momoshiki)</h3>
+      <a class="download-link" href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_HERE2" download>Download Clip 2</a>
+    </div>
+    
+    <div class="download-section">
+      <h3>Download: Special Soundtrack</h3>
+      <a class="download-link" href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_HERE3" download>Download Soundtrack</a>
+    </div>
+
+    <!-- Add more sections as needed; just copy and update file ID and description -->
+  </div>
+  
+  <script>
+    document.getElementById("searchBar").addEventListener("keyup", function() {
+      var value = this.value.toLowerCase();
+      var items = document.getElementsByClassName("searchable");
+      for (var i = 0; i < items.length; i++) {
+        if (items[i].innerText.toLowerCase().indexOf(value) > -1) {
+          items[i].style.display = "";
+        } else {
+          items[i].style.display = "none";
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sitemap</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0a0a0a;
+      color: #e0e0e0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 28px;
+      color: #00d4ff;
+      text-shadow: 0 0 10px #00d4ff;
+    }
+    #searchBar {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      border: 2px solid #00d4ff;
+      background: #111;
+      color: #fff;
+      font-size: 16px;
+      outline: none;
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin: 10px 0;
+    }
+    a {
+      color: #00d4ff;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #ff008c;
+      text-shadow: 0 0 8px #ff008c;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📑 Sitemap</h1>
+
+  <input type="text" id="searchBar" placeholder="🔍 Search...">
+
+  <ul id="sitemapList">
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="naruto.html">🔥 Naruto Clips</a></li>
+    <li><a href="sitemap.html">📑 Sitemap</a></li>
+    <li><a href="contact.html">📩 Contact</a></li>
+  </ul>
+
+  <script>
+    const searchBar = document.getElementById("searchBar");
+    const items = document.getElementById("sitemapList").getElementsByTagName("li");
+
+    searchBar.addEventListener("keyup", function() {
+      const filter = searchBar.value.toLowerCase();
+      for (let i = 0; i < items.length; i++) {
+        let link = items[i].getElementsByTagName("a")[0];
+        let textValue = link.textContent || link.innerText;
+        items[i].style.display = textValue.toLowerCase().includes(filter) ? "" : "none";
+      }
+    });
+  </script>
+
+</body>
+</html>

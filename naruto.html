@@ -4,68 +4,146 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naruto Clips</title>
+  <!-- Google Fonts for a modern, anime-inspired look -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(130deg, #0f2027, #2c5364 100%);
       margin: 0;
       padding: 0;
+      min-height: 100vh;
+      color: #e8eaf6;
     }
     nav {
-      background-color: #333;
-      padding: 10px;
+      background: #181d27;
+      box-shadow: 0 2px 8px rgba(0,0,0,.45);
+      padding: 14px 0;
+      text-align: center;
     }
     nav a {
-      color: white;
+      color: #ffec3d;
       text-decoration: none;
-      margin-right: 15px;
-      font-weight: bold;
+      margin: 0 22px;
+      font-size: 1.1em;
+      font-family: 'Orbitron', Arial, sans-serif;
+      letter-spacing: 1px;
+      position: relative;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
     }
     nav a:hover {
-      text-decoration: underline;
+      background: #1c2b36;
+      color: #40d9ff;
+      box-shadow: 0 0 8px 2px #40d9ff55;
+    }
+    .header-style {
+      font-family: 'Orbitron', Arial, sans-serif;
+      color: #40d9ff;
+      font-size: 2.3em;
+      text-shadow: 0 0 10px #40d9ff55, 0 2px 16px #181d2799;
     }
     .content {
-      padding: 20px;
+      padding: 30px 10vw 30px 10vw;
+      max-width: 850px;
+      margin: 0 auto;
     }
     .search-bar-container {
-      padding: 20px;
-      background: #fff;
+      background: #232946;
+      padding: 24px 10vw 8px 10vw;
+      text-align: center;
+      box-shadow: 0 4px 24px #11192840;
     }
     #searchBar {
-      width: 100%;
-      padding: 8px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
+      width: 70%;
+      padding: 12px 16px;
+      font-size: 1em;
+      font-family: 'Montserrat', Arial, sans-serif;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #000a;
+      margin-top: 6px;
+      transition: box-shadow 0.2s;
+    }
+    #searchBar:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px #40d9ff60;
+      border: 1.5px solid #40d9ff;
     }
     .searchable {
-      transition: all 0.2s;
+      transition: all 0.3s;
     }
     .download-section {
-      background: #fff;
-      padding: 16px;
-      margin: 20px 0;
-      border-radius: 8px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      background: linear-gradient(120deg, #161d28 90%, #1f4068 100%);
+      border-left: 5px solid #40d9ff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px #40d9ff14, 0 1.5px 3.5px #0005;
+      margin: 24px 0;
+      padding: 22px 34px;
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 0.95s;
     }
     .download-section h3 {
       margin-top: 0;
+      color: #ffec3d;
+      text-shadow: 0 1px 16px #f6ff0050;
+      font-family: 'Orbitron', Arial, sans-serif;
+      letter-spacing: 0.02em;
+      font-size: 1.32em;
     }
     .download-link {
       display: inline-block;
-      margin-top: 6px;
-      padding: 7px 14px;
-      background: #2d89ef;
-      color: white;
-      border-radius: 4px;
+      margin-top: 13px;
+      padding: 10px 24px;
+      background: radial-gradient(circle at 70% 15%, #40d9ff 55%, #0047ab 100%);
+      color: #181d27;
+      border: none;
+      border-radius: 7px;
+      font-weight: 700;
+      font-family: 'Orbitron', Arial, sans-serif;
       text-decoration: none;
-      font-weight: bold;
-      transition: background 0.2s;
+      font-size: 1.15em;
+      letter-spacing: 0.02em;
+      box-shadow: 0 0 16px #40d9ff90, 0 1.5px 7px #181d2740;
+      transition: background 0.19s, color 0.19s, box-shadow 0.19s;
+      position: relative;
     }
     .download-link:hover {
-      background: #175bad;
+      background: #ffec3d;
+      color: #181d27;
+      box-shadow: 0 0 32px #ffec3d55, 0 3px 9px #181d2770;
+      text-decoration: none;
     }
+    ul {
+      padding-left: 20px;
+    }
+    .anime-highlight {
+      color: #ff7d7d;
+      font-weight: 700;
+      padding-left: 4px;
+      font-family: 'Orbitron', Arial, sans-serif;
+      letter-spacing: 0.01em;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(35px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+    /* Decorative glowing border */
+    .download-section::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      bottom: -10px; left: -10px;
+      width: calc(100% + 20px);
+      height: 13px;
+      background: radial-gradient(circle, #40d9ff55 30%, transparent 70%);
+      filter: blur(2.5px);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    .download-section * { position: relative; z-index: 2; }
   </style>
 </head>
 <body>
@@ -76,41 +154,35 @@
     <a href="sitemap.html">Sitemap</a>
     <a href="contact.html">Contact</a>
   </nav>
-
   <div class="search-bar-container">
     <input type="text" id="searchBar" placeholder="Search this page...">
   </div>
-
   <div class="content">
-    <h1 class="searchable">Welcome to Naruto Clips</h1>
-    <p class="searchable">Here you can watch all your favorite Naruto anime clips!</p>
-    <h2 class="searchable">Popular Clips</h2>
+    <h1 class="searchable header-style">Welcome to <span class="anime-highlight">Naruto Clips</span></h1>
+    <p class="searchable">Enjoy a sleek anime-inspired experience to browse, search, and download your favorite Naruto moments!</p>
+    <h2 class="searchable" style="color:#40d9ff;">Popular Clips</h2>
     <ul>
       <li class="searchable">Naruto vs Pain Fight</li>
       <li class="searchable">Naruto and Sasuke vs Momoshiki</li>
       <li class="searchable">Naruto's Rasengan Training</li>
       <li class="searchable">Sasuke's Reunion with Sakura</li>
     </ul>
-    
-    <!-- Download Sections -->
+
+    <!-- Download Sections with creative style -->
     <div class="download-section">
-      <h3>Download: Clip 1 (Naruto vs Pain Fight)</h3>
+      <h3>Download: Clip 1 <span class="anime-highlight">(Naruto vs Pain Fight)</span></h3>
       <a class="download-link" href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_HERE1" download>Download Clip 1</a>
     </div>
-    
     <div class="download-section">
-      <h3>Download: Clip 2 (Naruto and Sasuke vs Momoshiki)</h3>
+      <h3>Download: Clip 2 <span class="anime-highlight">(Naruto and Sasuke vs Momoshiki)</span></h3>
       <a class="download-link" href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_HERE2" download>Download Clip 2</a>
     </div>
-    
     <div class="download-section">
-      <h3>Download: Special Soundtrack</h3>
+      <h3>Download: <span class="anime-highlight">Special Soundtrack</span></h3>
       <a class="download-link" href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_HERE3" download>Download Soundtrack</a>
     </div>
-
-    <!-- Add more sections as needed; just copy and update file ID and description -->
+    <!-- You can add more sections following this pattern -->
   </div>
-  
   <script>
     document.getElementById("searchBar").addEventListener("keyup", function() {
       var value = this.value.toLowerCase();
@@ -124,6 +196,5 @@
       }
     });
   </script>
-
 </body>
 </html>

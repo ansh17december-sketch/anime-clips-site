@@ -38,6 +38,36 @@
       padding: 20px;
       text-align: center;
     }
+    .search-bar {
+      margin: 20px auto 30px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    .search-input {
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      width: 240px;
+      background: #222;
+      color: #e0e0e0;
+      font-size: 16px;
+    }
+    .search-btn {
+      padding: 10px 18px;
+      border-radius: 6px;
+      border: none;
+      background: #00d4ff;
+      color: #000;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .search-btn:hover {
+      background: #ff008c;
+      color: #fff;
+    }
     .btn {
       display: inline-block;
       margin: 15px;
@@ -66,6 +96,12 @@
   </nav>
 
   <div class="container">
+    <!-- Search Bar Start -->
+    <form class="search-bar" action="#" method="GET" onsubmit="event.preventDefault(); alert('Search will be implemented soon!');">
+      <input class="search-input" type="text" name="q" placeholder="Search anime clips...">
+      <button class="search-btn" type="submit">Search</button>
+    </form>
+    <!-- Search Bar End -->
     <h2>Welcome to the Anime Clips Store 🎬</h2>
     <p>Find high-quality anime clips at affordable prices. Perfect for editors & fans!</p>
     <a href="sitemap.html" class="btn">Browse Sitemap</a>
